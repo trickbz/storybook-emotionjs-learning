@@ -1,9 +1,12 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Global, css, jsx } from "@emotion/core";
 import normalize from "normalize.css";
 import { ThemeProvider } from "emotion-theming";
+
+// components
+import Button from './components/Button';
 
 // pages
 import Home from "./components/pages/Home";
@@ -17,8 +20,14 @@ import greenTheme from "./themes/greenTheme";
 import blueTheme from "./themes/blueTheme";
 
 function App() {
+  const [theme, setTheme] = useState(greenTheme);
+
+  const onChangeThemeClick = () => {
+    setTheme(theme === greenTheme ? blueTheme : greenTheme);
+  }
+
   return (
-    <ThemeProvider theme={blueTheme}>
+    <ThemeProvider theme={theme}>
       <Global
         styles={css`
           ${normalize}
@@ -47,6 +56,10 @@ function App() {
               <Link to="/home">Home</Link>
             </li>          
           </ul>
+
+          <Button onClick={onChangeThemeClick}>
+            Change theme
+          </Button>
 
           <Switch>
             <Route exact path="/">

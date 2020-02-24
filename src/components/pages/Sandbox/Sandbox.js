@@ -13,11 +13,11 @@ function Sandbox() {
             <h3>components</h3>
 
             <div>
-                <Label /><Button />
+                <Label /><Button>Button One</Button>
             </div>
 
             <div>
-                <Label /><Button />            
+                <Label /><Button>Button Two</Button>
             </div>        
         </div>        
     </div>

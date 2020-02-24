@@ -3,9 +3,13 @@ import React from "react";
 import { css, jsx } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 
-function Button(props) {
+function Button({ onClick, children }) {
   const theme = useTheme();
-  console.log('theme.colors.controlText', theme.colors.controlText);
+
+  const handleClick = e => {
+    e.preventDefault();
+    onClick();
+  };
 
   return (
     <button
@@ -14,8 +18,9 @@ function Button(props) {
         background-color: ${theme.colors.controlBackground};
         border: 1px solid ${theme.colors.controlBorderColor};
       `}
+      onClick={handleClick}
     >
-      Button Text
+      {children}
     </button>
   )
 }
