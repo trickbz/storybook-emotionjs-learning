@@ -2,7 +2,7 @@ const theme = {
   colors: {
     controlText: 'white',
     controlBackground: 'green',
-    controlBorder: 'darkgreen'
+    controlBorderColor: 'darkgreen'
   }
 };
 
