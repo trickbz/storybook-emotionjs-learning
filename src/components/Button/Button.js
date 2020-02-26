@@ -8,13 +8,16 @@ import PropTypes from "prop-types";
 // styles
 import { labelStyles } from "./../../styles/commonStyles";
 
-function Button({ onClick, children, rounded }) {
+// constants
+import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConstants";
+
+function Button(props) {
+  const { onClick, children, rounded, type } = props;
   const theme = useTheme();
 
   const handleClick = e => {
-    e.preventDefault();
     if (isFunction(onClick)) {
-      onClick();
+      onClick(e);
     }
   };
 
@@ -29,14 +32,19 @@ function Button({ onClick, children, rounded }) {
       `}
       onClick={handleClick}
     >
-      {children}
+      {children} - {type}
     </button>
   )
 }
 
 Button.propTypes = {
   onClick: PropTypes.func,
-  rounded: PropTypes.bool
+  rounded: PropTypes.bool,
+  type: PropTypes.oneOf(BUTTON_TYPES)
 }
+
+Button.defaultProps = {
+  type: BUTTON_TYPE_SECONDARY
+};
 
 export default Button;
