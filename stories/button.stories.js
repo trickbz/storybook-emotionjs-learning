@@ -9,7 +9,7 @@ import Button from "../src/components/Button";
 import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../src/constants/buttonConstants";
 
 export default {
-  title: 'Button',
+  title: 'buttons/Button',
   decorators: [withKnobs],
   component: Button
 };
