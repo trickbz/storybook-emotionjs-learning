@@ -11,6 +11,7 @@ import Button from './components/Button';
 // pages
 import Home from "./components/pages/Home";
 import Sandbox from "./components/pages/Sandbox";
+import Hooks from "./components/pages/Hooks";
 
 // styles
 import './App.css';
@@ -54,7 +55,10 @@ function App() {
             </li>
             <li>
               <Link to="/home">Home</Link>
-            </li>          
+            </li>        
+            <li>
+              <Link to="/useCallback">Use callback</Link>
+            </li>                      
           </ul>
 
           <Button onClick={onChangeThemeClick}>
@@ -67,7 +71,10 @@ function App() {
             </Route>
             <Route path="/home">
               <Home />
-            </Route>          
+            </Route>   
+            <Route path="/useCallback">
+              <Hooks />
+            </Route>                      
           </Switch>        
         </div>
       </Router>      

@@ -12,7 +12,7 @@ import { labelStyles } from "./../../styles/commonStyles";
 import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConstants";
 
 function Button(props) {
-  const { onClick, children, rounded, type } = props;
+  const { onClick, children, rounded, type, styles } = props;
   const theme = useTheme();
 
   const handleClick = e => {
@@ -29,6 +29,7 @@ function Button(props) {
         border: 1px solid ${theme.colors.controlBorderColor};
         border-radius: ${rounded ? '10px' : '0'};
         ${labelStyles};
+        ${styles};
       `}
       onClick={handleClick}
     >
@@ -40,7 +41,8 @@ function Button(props) {
 Button.propTypes = {
   onClick: PropTypes.func,
   rounded: PropTypes.bool,
-  type: PropTypes.oneOf(BUTTON_TYPES)
+  type: PropTypes.oneOf(BUTTON_TYPES),
+  styles: PropTypes.object
 }
 
 Button.defaultProps = {

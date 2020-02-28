@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 // components
 import Button from "../../Button";
 import Label from "../../Label";
 
-function Sandbox() {
+const functions = new Set();
+
+function Sandbox() {  
   return (
     <div>
-        <h2>Sandbox</h2>
-
         <div>
             <h3>components</h3>
 
