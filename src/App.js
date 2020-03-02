@@ -10,8 +10,9 @@ import Button from './components/Button';
 
 // pages
 import Home from "./components/pages/Home";
-import Sandbox from "./components/pages/Sandbox";
+import Theming from "./components/pages/Theming";
 import Hooks from "./components/pages/Hooks";
+import UseLayoutEffect from "./components/pages/UseLayoutEffect";
 
 // styles
 import './App.css';
@@ -51,7 +52,7 @@ function App() {
         <div className="App">
           <ul>
             <li>
-              <Link to="/">Sandbox</Link>
+              <Link to="/">Theming</Link>
             </li>
             <li>
               <Link to="/home">Home</Link>
@@ -59,6 +60,9 @@ function App() {
             <li>
               <Link to="/useCallback">Use callback</Link>
             </li>                      
+            <li>
+              <Link to="/useLayoutEffect">Use Layout Effect</Link>
+            </li>                
           </ul>
 
           <Button onClick={onChangeThemeClick}>
@@ -67,14 +71,17 @@ function App() {
 
           <Switch>
             <Route exact path="/">
-              <Sandbox />
+              <Theming />
             </Route>
             <Route path="/home">
               <Home />
             </Route>   
             <Route path="/useCallback">
               <Hooks />
-            </Route>                      
+            </Route>        
+            <Route path="/useLayoutEffect">
+              <UseLayoutEffect />
+            </Route>                                  
           </Switch>        
         </div>
       </Router>      

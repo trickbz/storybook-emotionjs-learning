@@ -6,7 +6,7 @@ import Label from "../../Label";
 
 const functions = new Set();
 
-function Sandbox() {  
+function Theming() {  
   return (
     <div>
         <div>
@@ -24,4 +24,4 @@ function Sandbox() {
   );
 }
 
-export default Sandbox;
+export default Theming;

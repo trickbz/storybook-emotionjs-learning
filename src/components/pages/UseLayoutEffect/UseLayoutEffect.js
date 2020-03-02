@@ -6,7 +6,7 @@ import RandomColoredButton from "../../RandomColoredButton";
 const functions = new Set();
 
 // https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/
-function Hooks() {
+function UseLayoutEffect() {
   const [ step, setStep ] = useState(1);
   const [ count, setCount ] = useState(0);
 
@@ -36,4 +36,4 @@ function Hooks() {
   );
 }
 
-export default Hooks;
+export default UseLayoutEffect;
