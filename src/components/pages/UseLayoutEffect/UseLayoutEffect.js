@@ -1,37 +1,50 @@
-import React, { useState, useCallback } from "react";
+/** @jsx jsx */
+import { useState, useCallback } from "react";
+import { css, jsx } from "@emotion/core";
+import Button from "../../Button";
 
-// components
-import RandomColoredButton from "../../RandomColoredButton";
+function AbsolutelyPositionedDiv(props) {
+  const { show } = props;
+  console.warn('show', show);
+  
+  return (
+    <div
+      css={css`
+        position: absolute;
+        background-color: lightcoral;
+        height: 50px;
+        left: 50px;
+        padding: 10px;
+        display: ${show ? 'block' : 'none'};
+      `}
+    >
+      I'm absolute
+    </div>
+  );
+}
 
-const functions = new Set();
+function BottomMessage() {
+  return (
+    <div
+      css={css`
+        background-color: lightgray;
+      `}
+    >
+      I'm bottom message
+    </div>
+  )
+}
 
-// https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/
 function UseLayoutEffect() {
-  const [ step, setStep ] = useState(1);
-  const [ count, setCount ] = useState(0);
-
-  const incrementStep = useCallback(() => setStep(step => step + 1), []);
-  const incrementCount = useCallback(() => setCount(count => count + step), [step]);
-
-  functions.add(incrementStep);
-  functions.add(incrementCount);
+  const [show, setShow] = useState(true);
+  const handleSetShow = useCallback(() => setShow(!show), [show]);
   
   return (
     <div>
-        <h2>useCallback hook</h2>
-    
-        <a href="https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/" target="blank">Source</a>
-        <br /><br />
-
-        <div>
-            <div>
-                <div>{`Count: ${count};`}</div>
-                <div>{`Step: ${step};`}</div>
-                <div>{`Functions: ${functions.size - 2};`}</div>
-                <RandomColoredButton onClick={incrementStep}>Increment Step</RandomColoredButton>
-                <RandomColoredButton onClick={incrementCount}>Increment Count</RandomColoredButton>
-            </div>
-        </div>        
+        <h2>UseLayoutEffect hook</h2>
+        <AbsolutelyPositionedDiv show={show} />
+        <BottomMessage />
+        <Button onClick={handleSetShow}>Toggle show message</Button>
     </div>
   );
 }

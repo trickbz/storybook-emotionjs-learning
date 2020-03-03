@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from "react";
 import { css, jsx } from "@emotion/core";
-import PropTypes from "prop-types";
 
 // components
 import Button from "../Button";

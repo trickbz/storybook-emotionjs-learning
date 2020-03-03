@@ -43,6 +43,7 @@
     "@babel/core": "^7.8.4",
     "@storybook/addon-actions": "^5.3.14",
     "@storybook/react": "^5.3.14",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6"
   }
 }

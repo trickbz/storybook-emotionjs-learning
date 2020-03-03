@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from "react";
 import { css, jsx } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 import { isFunction } from "lodash";
@@ -30,10 +29,13 @@ function Button(props) {
         border-radius: ${rounded ? '10px' : '0'};
         ${labelStyles};
         ${styles};
+        cursor: pointer;
       `}
       onClick={handleClick}
+      type="button"
+      className={`type-${type}`}
     >
-      {children} - {type}
+      {children}
     </button>
   )
 }
