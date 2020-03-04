@@ -1,7 +1,12 @@
 /** @jsx jsx */
-import { useState, useCallback, useRef, forwardRef, useEffect, useLayoutEffect } from "react";
+import { useState, useCallback, useRef, forwardRef } from "react";
 import { css, jsx } from "@emotion/core";
+
+// components
 import Button from "../../Button";
+
+// hooks
+import { useMoveElementBelowOtherHook } from "../../../hooks/moveBelowHook";
 
 const AbsoluteBox = forwardRef((props, ref) => {
   const { onClick } = props;
@@ -26,27 +31,8 @@ const AbsoluteBox = forwardRef((props, ref) => {
   );
 })
 
-function setMessagePosition(ref, outerRef) {
-  const rect = outerRef.current.getBoundingClientRect();
-  ref.current.style.top = `${rect.height}px`;  
-}
-
-const useMessageEffectHook = (outerRef, isLayoutEffect = true) => {
-  const ref = useRef(null);
-  
-  useLayoutEffect(() => {
-    isLayoutEffect && setMessagePosition(ref, outerRef);
-  }, [outerRef, isLayoutEffect]);
-
-  useEffect(() => {
-    !isLayoutEffect && setMessagePosition(ref, outerRef);
-  }, [outerRef, isLayoutEffect]);      
-
-  return ref;
-};
-
 const BottomMessage = ({ show, outerRef, isLayoutEffect }) => {
-  const ref = useMessageEffectHook(outerRef, isLayoutEffect);
+  const ref = useMoveElementBelowOtherHook(outerRef, isLayoutEffect);
 
   return (
     <div
@@ -78,10 +64,9 @@ function UseLayoutEffectPage() {
             <li>switch to this page using menu to see bottom message flickering while positioning bellow the red box</li>
             <li>replace useEffect with useLayoutEffect and do #1 to see that message stops flickering</li>
         </ol>
-        <b>Hook used: {isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}</b>
-        <br />
+        <b css={css`margin-right: 10px;`}>Hook used: {isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}</b>
         <Button onClick={() => setIsLayoutEffect(!isLayoutEffect)}>
-          Change to: {!isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}
+          Change to {!isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}
         </Button>
         <AbsoluteBox ref={absoluteBoxRef} onClick={handleSetShow} />
         <BottomMessage outerRef={absoluteBoxRef} show={show} isLayoutEffect={isLayoutEffect} />
