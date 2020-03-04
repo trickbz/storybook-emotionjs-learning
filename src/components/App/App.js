@@ -10,10 +10,10 @@ import { isEqual } from "lodash";
 import Menu from './Menu';
 
 // pages
-import Home from "../pages/Home";
-import Theming from "../pages/Theming";
-import Hooks from "../pages/Hooks";
-import UseLayoutEffect from "../pages/UseLayoutEffect";
+import HomePage from "../pages/HomePage";
+import ThemingPage from "../pages/ThemingPage";
+import UseCallbackPage from "../pages/UseCallbackPage";
+import UseLayoutEffectPage from "../pages/UseLayoutEffectPage";
 
 // styles
 import './App.css';
@@ -69,16 +69,16 @@ function App() {
 
           <Switch>
             <Route path={HOME_ROUTE} exact>
-              <Home />
+              <HomePage />
             </Route>               
             <Route path={THEMING_ROUTE}>
-              <Theming />
+              <ThemingPage />
             </Route>
             <Route path={USE_CALLBACK_ROUTE}>
-              <Hooks />
+              <UseCallbackPage />
             </Route>        
             <Route path={USE_LAYOUT_EFFECT_ROUTE}>
-              <UseLayoutEffect />
+              <UseLayoutEffectPage />
             </Route>                                  
           </Switch>        
         </div>

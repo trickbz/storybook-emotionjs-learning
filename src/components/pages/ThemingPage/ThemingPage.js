@@ -10,9 +10,9 @@ import ThemeSwitcher from "../../ThemeSwitcher";
 import { 
   labelStyles, 
   divStyles 
-} from "./ThemingStyles";
+} from "./ThemingPageStyles";
 
-function Theming() {    
+function ThemingPage() {    
   return (
     <div>
         <div>
@@ -34,4 +34,4 @@ function Theming() {
   );
 }
 
-export default Theming;
+export default ThemingPage;

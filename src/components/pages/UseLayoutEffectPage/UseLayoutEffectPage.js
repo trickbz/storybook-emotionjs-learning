@@ -50,7 +50,7 @@ function BottomMessage({ outerRef, show }) {
   )
 }
 
-function UseLayoutEffect() {
+function UseLayoutEffectPage() {
   const [show, setShow] = useState(true);
   
   const handleSetShow = useCallback(() => {
@@ -72,4 +72,4 @@ function UseLayoutEffect() {
   );
 }
 
-export default UseLayoutEffect;
+export default UseLayoutEffectPage;
