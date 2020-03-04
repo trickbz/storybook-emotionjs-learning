@@ -12,7 +12,7 @@ import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConst
 
 function Button(props) {
   const { onClick, children, rounded, type, styles } = props;
-  const theme = useTheme();
+  const { theme } = useTheme();
 
   const handleClick = e => {
     if (isFunction(onClick)) {

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Global, css, jsx } from "@emotion/core";
 import normalize from "normalize.css";
 import { ThemeProvider } from "emotion-theming";
+import { useState, useEffect, useCallback } from "react";
+import { isEqual } from "lodash";
 
 // components
 import Menu from './Menu';
@@ -27,10 +29,32 @@ import {
 
 // themes
 import blueTheme from "../../themes/blueTheme";
+import greenTheme from "../../themes/greenTheme";
 
-function App() {    
+function App() {   
+  const [theme, setTheme] = useState(greenTheme);
+
+  const toggleTheme = useCallback(() => {
+    const nextTheme = isEqual(theme, greenTheme)
+      ? blueTheme
+      : greenTheme;
+    setTheme(nextTheme);
+  }, [theme]);
+   
+  const [themeConfig, setThemeConfig] = useState({
+    theme,
+    toggleTheme
+  });
+
+  useEffect(() => {
+    setThemeConfig({
+      theme,
+      toggleTheme
+    })
+  }, [theme, toggleTheme]);
+
   return (
-    <ThemeProvider theme={blueTheme}>
+    <ThemeProvider theme={themeConfig}>
       <Global
         styles={css`
           ${normalize}
