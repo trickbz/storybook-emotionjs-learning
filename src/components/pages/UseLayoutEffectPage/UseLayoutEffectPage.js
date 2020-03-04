@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { useState, useCallback, useRef, forwardRef, useEffect } from "react";
+import { useState, useCallback, useRef, forwardRef, useEffect, useLayoutEffect } from "react";
 import { css, jsx } from "@emotion/core";
+import Button from "../../Button";
 
 const AbsoluteBox = forwardRef((props, ref) => {
   const { onClick } = props;
@@ -15,6 +16,7 @@ const AbsoluteBox = forwardRef((props, ref) => {
         padding: 10px;
         display: flex;
         align-items: center;
+        user-select: none;
       `}
       ref={ref}
       onClick={onClick}
@@ -29,13 +31,23 @@ function setMessagePosition(ref, outerRef) {
   ref.current.style.top = `${rect.height}px`;  
 }
 
-function BottomMessage({ outerRef, show }) {
+const useMessageEffectHook = (outerRef, isLayoutEffect = true) => {
   const ref = useRef(null);
+  
+  useLayoutEffect(() => {
+    isLayoutEffect && setMessagePosition(ref, outerRef);
+  }, [outerRef, isLayoutEffect]);
 
   useEffect(() => {
-    setMessagePosition(ref, outerRef);
-  }, [outerRef]);
-  
+    !isLayoutEffect && setMessagePosition(ref, outerRef);
+  }, [outerRef, isLayoutEffect]);      
+
+  return ref;
+};
+
+const BottomMessage = ({ show, outerRef, isLayoutEffect }) => {
+  const ref = useMessageEffectHook(outerRef, isLayoutEffect);
+
   return (
     <div
       css={css`
@@ -47,11 +59,12 @@ function BottomMessage({ outerRef, show }) {
     >
       I'm bottom message
     </div>
-  )
-}
+  );
+};
 
 function UseLayoutEffectPage() {
   const [show, setShow] = useState(true);
+  const [isLayoutEffect, setIsLayoutEffect] = useState(false);
   
   const handleSetShow = useCallback(() => {
     setShow(!show);
@@ -65,9 +78,13 @@ function UseLayoutEffectPage() {
             <li>switch to this page using menu to see bottom message flickering while positioning bellow the red box</li>
             <li>replace useEffect with useLayoutEffect and do #1 to see that message stops flickering</li>
         </ol>
-        
+        <b>Hook used: {isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}</b>
+        <br />
+        <Button onClick={() => setIsLayoutEffect(!isLayoutEffect)}>
+          Change to: {!isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}
+        </Button>
         <AbsoluteBox ref={absoluteBoxRef} onClick={handleSetShow} />
-        <BottomMessage outerRef={absoluteBoxRef} show={show} />
+        <BottomMessage outerRef={absoluteBoxRef} show={show} isLayoutEffect={isLayoutEffect} />
     </div>
   );
 }
