@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef, forwardRef, useEffect } from "react";
 import { css, jsx } from "@emotion/core";
-import Button from "../../Button";
 
-function AbsolutelyPositionedDiv(props) {
-  const { show } = props;
+const AbsoluteBox = forwardRef((props, ref) => {
+  const { onClick } = props;
   
   return (
     <div
@@ -14,20 +13,37 @@ function AbsolutelyPositionedDiv(props) {
         height: 50px;
         left: 50px;
         padding: 10px;
-        display: ${show ? 'block' : 'none'};
+        display: flex;
+        align-items: center;
       `}
+      ref={ref}
+      onClick={onClick}
     >
-      I'm absolute
+      Click Me
     </div>
   );
+})
+
+function setMessagePosition(ref, outerRef) {
+  const rect = outerRef.current.getBoundingClientRect();
+  ref.current.style.top = `${rect.height}px`;  
 }
 
-function BottomMessage() {
+function BottomMessage({ outerRef, show }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    setMessagePosition(ref, outerRef);
+  }, [outerRef]);
+  
   return (
     <div
       css={css`
         background-color: lightgray;
+        position: relative;
+        display: ${show ? 'block' : 'none'};        
       `}
+      ref={ref}
     >
       I'm bottom message
     </div>
@@ -36,14 +52,22 @@ function BottomMessage() {
 
 function UseLayoutEffect() {
   const [show, setShow] = useState(true);
-  const handleSetShow = useCallback(() => setShow(!show), [show]);
+  
+  const handleSetShow = useCallback(() => {
+    setShow(!show);
+  }, [show]);
+  const absoluteBoxRef = useRef(null);
   
   return (
     <div>
         <h2>UseLayoutEffect hook</h2>
-        <AbsolutelyPositionedDiv show={show} />
-        <BottomMessage />
-        <Button onClick={handleSetShow}>Toggle show message</Button>
+        <ol>
+            <li>switch to this page using menu to see bottom message flickering while positioning bellow the red box</li>
+            <li>replace useEffect with useLayoutEffect and do #1 to see that message stops flickering</li>
+        </ol>
+        
+        <AbsoluteBox ref={absoluteBoxRef} onClick={handleSetShow} />
+        <BottomMessage outerRef={absoluteBoxRef} show={show} />
     </div>
   );
 }

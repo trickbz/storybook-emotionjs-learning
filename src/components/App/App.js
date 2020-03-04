@@ -64,7 +64,7 @@ function App() {
         `}
       />
       <Router>
-        <div className="App">
+        <div>
           <Menu items={MenuConfig}   />
 
           <Switch>

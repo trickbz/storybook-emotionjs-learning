@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import { css } from "@emotion/core";
 
 export const labelStyles = css`
   margin-right: 10px;
