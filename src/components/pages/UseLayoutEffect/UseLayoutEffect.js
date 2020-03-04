@@ -5,7 +5,6 @@ import Button from "../../Button";
 
 function AbsolutelyPositionedDiv(props) {
   const { show } = props;
-  console.warn('show', show);
   
   return (
     <div
