@@ -1,14 +1,17 @@
-import React, { useState, useEffect, useCallback } from "react";
+/** @jsx jsx */
+import { jsx, css } from "@emotion/core";
+import { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { get, isFunction } from "lodash";
 
 // styles
-import { inputContainer } from "./InputStyles";
+import { inputContainer, inputBorder } from "./InputStyles";
 
 function Input(props) {
   const {
     onChange,
     value,
+    border,
     ...otherProps
   } = props;
 
@@ -27,7 +30,10 @@ function Input(props) {
   }, [onChange]);
 
   return (
-    <div css={inputContainer}>
+    <div css={css`
+      ${inputContainer};
+      ${border && inputBorder};
+    `}>
       <input
         value={inputValue}
         onChange={handleChange}
@@ -39,7 +45,8 @@ function Input(props) {
 
 Input.propTypes = {
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.string,
+  border: PropTypes.bool
 }
 
 export default Input;
