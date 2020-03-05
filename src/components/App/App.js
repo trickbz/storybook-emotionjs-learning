@@ -14,6 +14,7 @@ import HomePage from "../pages/HomePage";
 import ThemingPage from "../pages/ThemingPage";
 import UseCallbackPage from "../pages/UseCallbackPage";
 import UseLayoutEffectPage from "../pages/UseLayoutEffectPage";
+import ReduxFormPage from "../pages/ReduxFormPage";
 
 // styles
 import './App.css';
@@ -24,7 +25,8 @@ import {
   THEMING_ROUTE, 
   HOME_ROUTE, 
   USE_CALLBACK_ROUTE, 
-  USE_LAYOUT_EFFECT_ROUTE 
+  USE_LAYOUT_EFFECT_ROUTE, 
+  REDUX_FROM_PAGE
 } from '../../constants/routerConstants';
 
 // themes
@@ -79,6 +81,9 @@ function App() {
             </Route>        
             <Route path={USE_LAYOUT_EFFECT_ROUTE}>
               <UseLayoutEffectPage />
+            </Route>                                  
+            <Route path={REDUX_FROM_PAGE}>
+              <ReduxFormPage />
             </Route>                                  
           </Switch>        
         </div>

@@ -1,4 +1,4 @@
-import { USE_CALLBACK_ROUTE, USE_LAYOUT_EFFECT_ROUTE, THEMING_ROUTE, HOME_ROUTE } from "./../constants/routerConstants";
+import { USE_CALLBACK_ROUTE, USE_LAYOUT_EFFECT_ROUTE, THEMING_ROUTE, HOME_ROUTE, REDUX_FROM_PAGE } from "./../constants/routerConstants";
 
 export default [
   {
@@ -16,5 +16,9 @@ export default [
   {
     label: 'Use Layout Effect hook',
     route: USE_LAYOUT_EFFECT_ROUTE
+  },
+  {
+    label: 'ReduxForm Page',
+    route: REDUX_FROM_PAGE
   }
 ];
