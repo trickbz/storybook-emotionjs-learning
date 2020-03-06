@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Field } from "redux-form";
 import { partial } from "lodash";
 
@@ -24,11 +24,16 @@ export const withFormField = WrappedComponent => props => {
     ...componentProps
   } = props;
 
+  const Component = useCallback(
+    partial(ComponentWrapper, WrappedComponent), 
+    [ComponentWrapper, WrappedComponent]
+  );
+
   return (
     <div>
       <Field
         name={name}
-        component={partial(ComponentWrapper, WrappedComponent)}
+        component={Component}
         {...componentProps}
        />
     </div>

@@ -5,17 +5,17 @@ import { isFunction } from "lodash";
 import PropTypes from "prop-types";
 
 // styles
-import { labelStyles } from "../../styles/common.styles";
+import * as s from "./Button.style";
 
 // constants
 import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConstants";
 
 function Button(props) {
-  const { onClick, children, rounded, type, styles } = props;
+  const { onClick, children, rounded, type, styles, disabled } = props;
   const { theme } = useTheme();
 
   const handleClick = e => {
-    if (isFunction(onClick)) {
+    if (isFunction(onClick) && !disabled) {
       onClick(e);
     }
   };
@@ -27,13 +27,13 @@ function Button(props) {
         background-color: ${theme.colors.controlBackground};
         border: 1px solid ${theme.colors.controlBorderColor};
         border-radius: ${rounded ? '10px' : '0'};
-        ${labelStyles};
+        ${disabled && s.disabled}
         ${styles};
-        cursor: pointer;
       `}
       onClick={handleClick}
       type="button"
       className={`type-${type}`}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -44,11 +44,13 @@ Button.propTypes = {
   onClick: PropTypes.func,
   rounded: PropTypes.bool,
   type: PropTypes.oneOf(BUTTON_TYPES),
-  styles: PropTypes.object
+  styles: PropTypes.object,
+  disabled: PropTypes.bool
 }
 
 Button.defaultProps = {
-  type: BUTTON_TYPE_SECONDARY
+  type: BUTTON_TYPE_SECONDARY,
+  disabled: false
 };
 
 export default Button;

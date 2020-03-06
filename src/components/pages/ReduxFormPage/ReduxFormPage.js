@@ -17,10 +17,7 @@ function ReduxFormPage() {
       <h3>TODO</h3>
 
       <ul>
-        <li>Add field validation</li>        
-        <li>Add subit button which is disabled when form is invalid </li>
         <li>Create checkbox control and turn in into form-field using hoc</li>
-        <li>Display form values taken from store by builit-in redux-form selectors</li>
       </ul>
 
       <PersonForm />

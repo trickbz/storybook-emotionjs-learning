@@ -3,9 +3,6 @@ import { css, jsx } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 import PropTypes from "prop-types";
 
-// styles
-import { labelStyles } from "../../styles/common.styles";
-
 function Label(props) {
   const {
     children,
@@ -24,7 +21,6 @@ function Label(props) {
         color: ${theme.colors.controlText};
         background-color: ${theme.colors.controlBackground};
         ${innerStyles};
-        ${labelStyles};
         ${styles};
       `}
     >
