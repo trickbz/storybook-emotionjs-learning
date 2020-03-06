@@ -4,7 +4,7 @@ import { useTheme } from "emotion-theming";
 import PropTypes from "prop-types";
 
 // styles
-import { labelStyles } from "./../../styles/commonStyles";
+import { labelStyles } from "../../styles/common.styles";
 
 function Label(props) {
   const {

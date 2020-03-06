@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { reduxForm, Form } from "redux-form";
 
 // hocs
@@ -10,10 +10,12 @@ import Input from "../../../Input";
 const InputField = withFormField(Input);
 
 function PersonForm() {
+  const submitHandler = useCallback(() => {});
+  
   return (
-    <Form>
+    <Form onSubmit={submitHandler}>
       <InputField name="name" />
-      <InputField name="surname" border />
+      <InputField name="surname" />
     </Form>
   )
 }

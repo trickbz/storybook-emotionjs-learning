@@ -5,18 +5,19 @@ import { jsx } from "@emotion/core";
 import Button from "../../Button";
 import Label from "../../Label";
 import ThemeSwitcher from "../../ThemeSwitcher";
+import CssModulesStyledBox from "./CssModulesStyledBox";
 
 // styles
 import { 
   labelStyles, 
   divStyles 
-} from "./ThemingPageStyles";
+} from "./ThemingPage.styles";
 
 function ThemingPage() {    
   return (
     <div>
         <div>
-            <h3>Theming example</h3>
+            <h3>Switch theme example</h3>
 
             <ThemeSwitcher />
 
@@ -28,7 +29,16 @@ function ThemingPage() {
             <div css={divStyles}>
                 <Label styles={labelStyles}>Label 2 Text</Label>
                 <Button>Button Two</Button>
-            </div>        
+            </div>    
+
+            <h3>CSS modules example</h3>    
+
+            <ol>
+              <li>SCSS and CSS file extensions are supported</li>
+              <li>File must follow naming pattern [name].module.[scss|css] to be processed by CRA properly</li>
+            </ol>
+
+            <CssModulesStyledBox />
         </div>        
     </div>
   );

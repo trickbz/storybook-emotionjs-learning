@@ -5,7 +5,7 @@ import { isFunction } from "lodash";
 import PropTypes from "prop-types";
 
 // styles
-import { labelStyles } from "./../../styles/commonStyles";
+import { labelStyles } from "../../styles/common.styles";
 
 // constants
 import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConstants";

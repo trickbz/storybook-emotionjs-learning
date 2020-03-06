@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { get, isFunction } from "lodash";
 
 // styles
-import { inputContainer, inputBorder } from "./InputStyles";
+import { inputContainer, inputBorder } from "./Input.style";
 
 function Input(props) {
   const {
@@ -32,7 +32,6 @@ function Input(props) {
   return (
     <div css={css`
       ${inputContainer};
-      ${border && inputBorder};
     `}>
       <input
         value={inputValue}
