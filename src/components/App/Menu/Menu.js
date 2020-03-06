@@ -1,8 +1,11 @@
 /** @jsx jsx */
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { map } from "lodash";
 import { css, jsx } from "@emotion/core";
+
+// styles
+import * as s from "./Menu.style";
 
 function Menu(props) {
   const {
@@ -17,14 +20,16 @@ function Menu(props) {
         return (
           <li 
             key={idx}
-            css={css`
-              display: inline-block;
-              &:not(:last-child) {
-                margin-right: 10px;
-              }
-            `}
+            css={s.menuItem}
           >
-            <Link to={route}>{label}</Link>
+            <NavLink 
+              to={route} 
+              exact
+              activeClassName="selected"
+              css={s.activeLinkStyle}
+            >
+              {label}
+            </NavLink>
           </li>
         );
       })}

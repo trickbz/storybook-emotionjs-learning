@@ -67,7 +67,7 @@ function App() {
       />
       <Router>
         <div>
-          <Menu items={MenuConfig}   />
+          <Menu items={MenuConfig} />
 
           <Switch>
             <Route path={HOME_ROUTE} exact>
