@@ -1,4 +1,5 @@
 const theme = {
+  name: 'green',
   colors: {
     controlText: 'white',
     controlBackground: 'green',

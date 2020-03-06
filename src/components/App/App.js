@@ -33,9 +33,12 @@ import {
 import blueTheme from "../../themes/blueTheme";
 import greenTheme from "../../themes/greenTheme";
 
-function App() {   
-  const [theme, setTheme] = useState(greenTheme);
+// hooks
+import { useLocalStorage } from "../../hooks/localStorageHooks";
 
+function App() {   
+  const [theme, setTheme] = useLocalStorage('theme', greenTheme);
+  
   const toggleTheme = useCallback(() => {
     const nextTheme = isEqual(theme, greenTheme)
       ? blueTheme

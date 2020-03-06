@@ -5,10 +5,13 @@ export const activeLinkStyle = css`
     text-decoration: none;
     color: inherit;
     cursor: default;
-}`;
+  }
+`;
 
 export const menuItem = css`
-display: inline-block;
-&:not(:last-child) {
-  margin-right: 10px;
-}`;
+  display: inline-block;
+  
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+`;
