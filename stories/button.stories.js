@@ -14,14 +14,16 @@ export default {
   component: Button
 };
 
+const onClickHandler = action('click');
+
 export const withRoundedCorners = () => (
   <Button 
   rounded={boolean("Rounded", true)} 
-  onClick={action('button-click')} 
+  onClick={onClickHandler} 
   type={select("Type", BUTTON_TYPES, BUTTON_TYPE_SECONDARY)}
   >
     {text("Label", "Button Text")}
   </Button>
 );
 
-export const withText = () => <Button>{text("Label", "Button Text")}</Button>;
+export const withText = () => <Button onClick={onClickHandler}>{text("Label", "Button Text")}</Button>;
