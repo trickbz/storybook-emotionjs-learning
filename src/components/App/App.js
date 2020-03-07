@@ -28,6 +28,7 @@ import {
   USE_LAYOUT_EFFECT_ROUTE, 
   REDUX_FROM_PAGE
 } from '../../constants/routerConstants';
+import { LOCAL_STORAGE_THEME_KEY } from "../../constants/localStorageConstants";
 
 // themes
 import blueTheme from "../../themes/blueTheme";
@@ -37,7 +38,7 @@ import greenTheme from "../../themes/greenTheme";
 import { useLocalStorage } from "../../hooks/localStorageHooks";
 
 function App() {   
-  const [theme, setTheme] = useLocalStorage('theme', greenTheme);
+  const [theme, setTheme] = useLocalStorage(LOCAL_STORAGE_THEME_KEY, greenTheme);
   
   const toggleTheme = useCallback(() => {
     const nextTheme = isEqual(theme, greenTheme)
