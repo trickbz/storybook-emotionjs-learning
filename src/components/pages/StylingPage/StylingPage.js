@@ -33,7 +33,7 @@ function HomePage() {
   
   return (
     <div>
-      <Page title="Home page">
+      <Page title="Styling">
         <Box 
           className={s.boxClassName} 
           childrenClassName={s.BoxChildrenClassName}

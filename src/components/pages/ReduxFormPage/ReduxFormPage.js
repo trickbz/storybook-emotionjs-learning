@@ -7,7 +7,7 @@ import Page from "../../Page";
 
 function ReduxFormPage() {
   return (
-    <Page title="Redux Form Page">
+    <Page title="Redux Form">
       <div>
         <ul>
           <li>redux-form example</li>
