@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useCallback } from "react";
+import { useCallback, Fragment } from "react";
 import { jsx } from "@emotion/core";
 import { connect } from "react-redux";
 import { reduxForm, Form, formValueSelector } from "redux-form";
@@ -33,7 +33,7 @@ function PersonForm(props) {
   const submitHandler = useCallback(() => { alert('submitted') }, []);
 
   return (
-    <>
+    <Fragment>
       <div css={s.fullName}>
         <strong>FN</strong>: {`${personName} ${personSurname}.`}
       </div>
@@ -49,7 +49,7 @@ function PersonForm(props) {
           Add
         </Button>
       </Form>
-    </>
+    </Fragment>
   )
 }
 
