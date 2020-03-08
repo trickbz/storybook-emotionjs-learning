@@ -11,7 +11,7 @@ import * as s from "./Button.style";
 import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConstants";
 
 function Button(props) {
-  const { onClick, children, rounded, type, styles, disabled } = props;
+  const { onClick, children, type, styles, disabled } = props;
   const { theme } = useTheme();
 
   const handleClick = e => {
@@ -23,11 +23,8 @@ function Button(props) {
   return (
     <button
       css={css`
-        color: ${theme.colors.controlText};
-        background-color: ${theme.colors.controlBackground};
-        border: 1px solid ${theme.colors.controlBorderColor};
-        border-radius: ${rounded ? '10px' : '0'};
-        ${disabled && s.disabled}
+        ${s.button};
+        ${s.getThemeStyles(theme, props)}
         ${styles};
       `}
       onClick={handleClick}
