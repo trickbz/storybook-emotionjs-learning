@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 
 // components
 import RandomColoredButton from "../../RandomColoredButton";
+import Page from "../../Page";
 
 const functions = new Set();
 
@@ -17,22 +18,20 @@ function UseCallbackPage() {
   functions.add(incrementCount);
   
   return (
-    <div>
-        <h2>useCallback hook</h2>
-    
-        <a href="https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/" target="blank">Source</a>
-        <br /><br />
+    <Page title="useCallback hook">
+      <a href="https://nikgrozev.com/2019/04/07/reacts-usecallback-and-usememo-hooks-by-example/" target="blank">Source</a>
+      <br /><br />
 
-        <div>
-            <div>
-                <div>{`Count: ${count};`}</div>
-                <div>{`Step: ${step};`}</div>
-                <div>{`Functions: ${functions.size - 2};`}</div>
-                <RandomColoredButton onClick={incrementStep}>Increment Step</RandomColoredButton>
-                <RandomColoredButton onClick={incrementCount}>Increment Count</RandomColoredButton>
-            </div>
-        </div>        
-    </div>
+      <div>
+          <div>
+              <div>{`Count: ${count};`}</div>
+              <div>{`Step: ${step};`}</div>
+              <div>{`Functions: ${functions.size - 2};`}</div>
+              <RandomColoredButton onClick={incrementStep}>Increment Step</RandomColoredButton>
+              <RandomColoredButton onClick={incrementCount}>Increment Count</RandomColoredButton>
+          </div>
+      </div>        
+    </Page>
   );
 }
 

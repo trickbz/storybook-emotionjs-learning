@@ -5,7 +5,7 @@ import { map } from "lodash";
 import { jsx } from "@emotion/core";
 
 // styles
-import * as s from "./Menu.style";
+import * as s from "./Menu.styles";
 
 function Menu(props) {
   const {

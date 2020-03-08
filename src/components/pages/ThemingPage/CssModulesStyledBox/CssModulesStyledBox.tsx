@@ -6,7 +6,7 @@ import Label from "../../../Label";
 
 // styles
 import s from "./CssModulesStyledBox.module.scss";
-import { content } from "./CssModulesStyledBox.style";
+import { content } from "./CssModulesStyledBox.styles";
 
 function CssModulesStyledBox() {
   return (

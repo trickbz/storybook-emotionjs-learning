@@ -6,6 +6,7 @@ import Button from "../../Button";
 import Label from "../../Label";
 import ThemeSwitcher from "../../ThemeSwitcher";
 import CssModulesStyledBox from "./CssModulesStyledBox";
+import Page from "../../Page";
 
 // styles
 import { 
@@ -15,32 +16,28 @@ import {
 
 function ThemingPage() {    
   return (
-    <div>
-        <div>
-            <h3>Switch theme example</h3>
+    <Page title="Switch theme example">
+      <ThemeSwitcher />
 
-            <ThemeSwitcher />
+      <div css={divStyles}>
+        <Label styles={labelStyles}>Label 1 Text</Label>
+        <Button>Button One</Button>
+      </div>
 
-            <div css={divStyles}>
-              <Label styles={labelStyles}>Label 1 Text</Label>
-              <Button>Button One</Button>
-            </div>
+      <div css={divStyles}>
+          <Label styles={labelStyles}>Label 2 Text</Label>
+          <Button>Button Two</Button>
+      </div>    
 
-            <div css={divStyles}>
-                <Label styles={labelStyles}>Label 2 Text</Label>
-                <Button>Button Two</Button>
-            </div>    
+      <h3>CSS modules example</h3>    
 
-            <h3>CSS modules example</h3>    
+      <ol>
+        <li>SCSS and CSS file extensions are supported</li>
+        <li>File must follow naming pattern [name].module.[scss|css] to be processed by CRA properly</li>
+      </ol>
 
-            <ol>
-              <li>SCSS and CSS file extensions are supported</li>
-              <li>File must follow naming pattern [name].module.[scss|css] to be processed by CRA properly</li>
-            </ol>
-
-            <CssModulesStyledBox />
-        </div>        
-    </div>
+      <CssModulesStyledBox />
+    </Page>
   );
 }
 

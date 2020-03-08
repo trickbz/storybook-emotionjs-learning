@@ -11,6 +11,7 @@ import { LOCAL_STORAGE_ACTIVE_EFFECT_HOOK_KEY } from "../../../constants/localSt
 // hooks
 import { useMoveElementBelowOtherHook } from "../../../hooks/moveBelowHook";
 import { useLocalStorage } from "../../../hooks/localStorageHooks";
+import Page from "../../Page";
 
 const AbsoluteBox = forwardRef((props, ref) => {
   const { onClick } = props;
@@ -64,19 +65,18 @@ function UseLayoutEffectPage() {
   const absoluteBoxRef = useRef(null);
   
   return (
-    <div>
-        <h2>UseLayoutEffect hook</h2>
-        <ol>
-            <li>Switch to this page using menu to see bottom message flickering while positioning bellow the red box</li>
-            <li>Change useEffect to useLayoutEffect and do #1 to see that message stops flickering</li>
-        </ol>
-        Hook used: <b css={css`margin-right: 10px;`}>{isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}</b>
-        <Button onClick={() => setIsLayoutEffect(!isLayoutEffect)}>
-          Change to {!isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}
-        </Button>
-        <AbsoluteBox ref={absoluteBoxRef} onClick={handleSetShow} />
-        <BottomMessage outerRef={absoluteBoxRef} show={show} isLayoutEffect={isLayoutEffect} />
-    </div>
+    <Page title="UseLayoutEffect hook">
+      <ol>
+          <li>Switch to this page using menu to see bottom message flickering while positioning bellow the red box</li>
+          <li>Change useEffect to useLayoutEffect and do #1 to see that message stops flickering</li>
+      </ol>
+      Hook used: <b css={css`margin-right: 10px;`}>{isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}</b>
+      <Button onClick={() => setIsLayoutEffect(!isLayoutEffect)}>
+        Change to {!isLayoutEffect ? 'useLayoutEffect' : 'useEffect'}
+      </Button>
+      <AbsoluteBox ref={absoluteBoxRef} onClick={handleSetShow} />
+      <BottomMessage outerRef={absoluteBoxRef} show={show} isLayoutEffect={isLayoutEffect} />
+    </Page>
   );
 }
 

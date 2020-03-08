@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { get, isFunction } from "lodash";
 
 // styles
-import { inputContainer } from "./Input.style";
+import { inputContainer } from "./Input.styles";
 
 function Input(props) {
   const {

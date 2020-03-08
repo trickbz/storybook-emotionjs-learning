@@ -3,7 +3,7 @@ import PropType from "prop-types";
 import { jsx } from "@emotion/core";
 
 // styles
-import { pageContainer } from "./Page.style";
+import { pageContainer } from "./Page.styles";
 
 function Page(props) {
   const {
@@ -13,7 +13,7 @@ function Page(props) {
   
   return (
     <div css={pageContainer}>
-      <div>{title}</div>
+      <h2>{title}</h2>
       <div>
         {children}
       </div>

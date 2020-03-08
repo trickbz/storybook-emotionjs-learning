@@ -16,7 +16,7 @@ import Button from "../../../Button";
 import { PERSON_FORM_KEY, PERSON_FORM_FIELDS, PERSON_FORM_CONFIG } from "./PersonFormConstats";
 
 // styles
-import * as s from "./PersonForm.style";
+import * as s from "./PersonForm.styles";
 
 const InputField = withFormField(Input);
 
