@@ -5,12 +5,15 @@ import ReactSelect from "react-select";
 
 function Select(props) {
   const {
-    options
+    options,
+    className
   } = props;
   
   return (
     <ReactSelect
       options={options}
+      classNamePrefix="select"
+      className={className}
     />
   )
 }

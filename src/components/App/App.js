@@ -15,6 +15,7 @@ import ThemingPage from "../pages/ThemingPage";
 import UseCallbackPage from "../pages/UseCallbackPage";
 import UseLayoutEffectPage from "../pages/UseLayoutEffectPage";
 import ReduxFormPage from "../pages/ReduxFormPage";
+import StylingPage from "../pages/StylingPage";
 
 // styles
 import './App.css';
@@ -26,7 +27,8 @@ import {
   HOME_ROUTE, 
   USE_CALLBACK_ROUTE, 
   USE_LAYOUT_EFFECT_ROUTE, 
-  REDUX_FROM_PAGE
+  REDUX_FORM_ROUTE,
+  STYLING_PAGE_ROUTE
 } from '../../constants/routerConstants';
 import { LOCAL_STORAGE_THEME_KEY } from "../../constants/localStorageConstants";
 
@@ -86,9 +88,12 @@ function App() {
             <Route path={USE_LAYOUT_EFFECT_ROUTE}>
               <UseLayoutEffectPage />
             </Route>                                  
-            <Route path={REDUX_FROM_PAGE}>
+            <Route path={REDUX_FORM_ROUTE}>
               <ReduxFormPage />
-            </Route>                                  
+            </Route>     
+            <Route path={STYLING_PAGE_ROUTE}>
+              <StylingPage />
+            </Route>                                              
           </Switch>        
         </div>
       </Router>      
