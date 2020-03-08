@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 export function useLocalStorage(key: string, initialValue: string) {
   const [storedValue, setStoredValue] = useState(() => {
@@ -11,7 +11,7 @@ export function useLocalStorage(key: string, initialValue: string) {
     }
   });
 
-  const setValue = (value:string|Function) => {
+  const setValue = useCallback((value:string|Function) => {
     try {
       const valueToStore = value instanceof Function 
         ? value(storedValue) : 
@@ -21,7 +21,7 @@ export function useLocalStorage(key: string, initialValue: string) {
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [key, storedValue]);
 
   return [storedValue, setValue];
 }
