@@ -2,7 +2,7 @@
 import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { map } from "lodash";
-import { css, jsx } from "@emotion/core";
+import { jsx } from "@emotion/core";
 
 // styles
 import * as s from "./Menu.style";

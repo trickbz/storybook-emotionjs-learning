@@ -45,7 +45,7 @@ function App() {
       ? blueTheme
       : greenTheme;
     setTheme(nextTheme);
-  }, [theme]);
+  }, [theme, setTheme]);
    
   const [themeConfig, setThemeConfig] = useState({
     theme,
