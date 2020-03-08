@@ -3,6 +3,9 @@ import { css, jsx } from "@emotion/core";
 import { useTheme } from "emotion-theming";
 import PropTypes from "prop-types";
 
+// styles
+import * as s from "../Label/Label.styles";
+
 function Label(props) {
   const {
     children,
@@ -11,16 +14,10 @@ function Label(props) {
   
   const { theme } = useTheme();
 
-  const innerStyles = css`
-    display: inline-block;
-  `;
-  
   return (
     <div
       css={css`
-        color: ${theme.colors.controlText};
-        background-color: ${theme.colors.controlBackground};
-        ${innerStyles};
+        ${s.getCommonStyles(theme)}
         ${styles};
       `}
     >

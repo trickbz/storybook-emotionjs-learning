@@ -11,7 +11,7 @@ export const disabledButton = css`
   cursor: not-allowed;
 `;
 
-export const getThemeStyles = (theme, { rounded, disabled }) => css`
+export const getCommonStyles = (theme, { rounded, disabled }) => css`
   color: ${theme.colors.controlText};
   background-color: ${theme.colors.controlBackground};
   border: 1px solid ${theme.colors.controlBorderColor};

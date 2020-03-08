@@ -24,7 +24,7 @@ function Button(props) {
     <button
       css={css`
         ${s.button};
-        ${s.getThemeStyles(theme, props)}
+        ${s.getCommonStyles(theme, props)}
         ${styles};
       `}
       onClick={handleClick}
