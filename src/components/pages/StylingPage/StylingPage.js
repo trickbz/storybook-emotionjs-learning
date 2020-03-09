@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx } from "@emotion/core";
+import { jsx, css } from "@emotion/core";
+import { useTheme } from "emotion-theming";
 
 // components
 import Page from "../../Page";
@@ -26,6 +27,8 @@ function Box(props) {
 }
 
 function HomePage() {
+  const theme = useTheme();
+  
   const options = [
     { label: 'Item 1', value: 1 },
     { label: 'Item 2', value: 2 }
@@ -36,7 +39,10 @@ function HomePage() {
       <Page title="Styling">
         <Box 
           className={s.boxClassName} 
-          childrenClassName={s.BoxChildrenClassName}
+          childrenClassName={css`
+            ${s.boxChildrenClassName};
+            border: 2px solid ${theme.theme.colors.controlBorderColor};
+          `}
         >
           Box
         </Box>

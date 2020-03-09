@@ -3,7 +3,7 @@ const theme = {
   colors: {
     controlText: 'white',
     controlBackground: 'blue',
-    controlBorderColor: 'black'
+    controlBorderColor: 'darkblue'
   }
 };
 

@@ -22,7 +22,6 @@ export const subGovno = css`
   font-weight: 800;
 `;
 
-export const BoxChildrenClassName = css`
-  border: 2px solid red;
+export const boxChildrenClassName = css`
   padding: 5px;
 `;
