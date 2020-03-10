@@ -1,6 +1,8 @@
+/** @jsx jsx */
 import React, { useCallback } from "react";
 import { Field } from "redux-form";
 import { partial } from "lodash";
+import { css, jsx } from "@emotion/core";
 
 const ComponentWrapper = (Component, fieldProps) => {
   const {
@@ -30,7 +32,9 @@ export const withFormField = WrappedComponent => props => {
   );
 
   return (
-    <div>
+    <div 
+      css={css`display: inline-block;`}
+    >
       <Field
         name={name}
         component={Component}

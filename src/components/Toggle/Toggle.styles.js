@@ -19,6 +19,7 @@ export const container = css`
   position: relative;
   align-items: center;
   user-select: none;
+  display: inline-block;
 `;
 
 export const slider = css`
@@ -29,7 +30,8 @@ export const slider = css`
   background-color: white;
   transition: left .2s;
   position: absolute;
-  left: 1px;
+  left: ${2 * containerPadding}px;
+  top: ${containerPadding + borderWidth}px;
   box-sizing: border-box;
 `;
 
