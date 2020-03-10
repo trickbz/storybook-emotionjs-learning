@@ -6,6 +6,7 @@ import Button from "../../Button";
 import Label from "../../Label";
 import ThemeSwitcher from "../../ThemeSwitcher";
 import CssModulesStyledBox from "./CssModulesStyledBox";
+import UserSwitcher from "./UserSwitcher";
 import Page from "../../Page";
 
 // styles
@@ -13,10 +14,13 @@ import {
   labelStyles, 
   divStyles 
 } from "./ThemingPage.styles";
+import AuthProtectedBox from "./AuthProtectedBox";
 
 function ThemingPage() {    
   return (
-    <Page title="Switch theme example">
+    <Page title="Examples">
+      <h3>Theme switcher exaple</h3>    
+      
       <ThemeSwitcher />
 
       <div css={divStyles}>
@@ -37,6 +41,13 @@ function ThemingPage() {
       </ol>
 
       <CssModulesStyledBox />
+
+      <h3>Simple athentication using context</h3>
+
+      <div>
+        <UserSwitcher />
+        <AuthProtectedBox />
+      </div>
     </Page>
   );
 }

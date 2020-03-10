@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { Field } from "redux-form";
 import { partial } from "lodash";
 import { css, jsx } from "@emotion/core";

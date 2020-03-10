@@ -8,6 +8,7 @@ import { isEqual } from "lodash";
 
 // components
 import Menu from './Menu';
+import AuthenticationContextWrapper from "./../../contexts/AuthenticationContext";
 
 // pages
 import HomePage from "../pages/HomePage";
@@ -63,40 +64,42 @@ function App() {
 
   return (
     <ThemeProvider theme={themeConfig}>
-      <Global
-        styles={css`
+      <AuthenticationContextWrapper>
+        <Global
+          styles={css`
           ${normalize}
           body {
             background-color: #fafafa;
           }
         `}
-      />
-      <Router>
-        <div>
-          <Menu items={MenuConfig} />
+        />
+        <Router>
+          <div>
+            <Menu items={MenuConfig} />
 
-          <Switch>
-            <Route path={HOME_ROUTE} exact>
-              <HomePage />
-            </Route>               
-            <Route path={THEMING_ROUTE}>
-              <ThemingPage />
-            </Route>
-            <Route path={USE_CALLBACK_ROUTE}>
-              <UseCallbackPage />
-            </Route>        
-            <Route path={USE_LAYOUT_EFFECT_ROUTE}>
-              <UseLayoutEffectPage />
-            </Route>                                  
-            <Route path={REDUX_FORM_ROUTE}>
-              <ReduxFormPage />
-            </Route>     
-            <Route path={STYLING_PAGE_ROUTE}>
-              <StylingPage />
-            </Route>                                              
-          </Switch>        
-        </div>
-      </Router>      
+            <Switch>
+              <Route path={HOME_ROUTE} exact>
+                <HomePage />
+              </Route>
+              <Route path={THEMING_ROUTE}>
+                <ThemingPage />
+              </Route>
+              <Route path={USE_CALLBACK_ROUTE}>
+                <UseCallbackPage />
+              </Route>
+              <Route path={USE_LAYOUT_EFFECT_ROUTE}>
+                <UseLayoutEffectPage />
+              </Route>
+              <Route path={REDUX_FORM_ROUTE}>
+                <ReduxFormPage />
+              </Route>
+              <Route path={STYLING_PAGE_ROUTE}>
+                <StylingPage />
+              </Route>
+            </Switch>
+          </div>
+        </Router>      
+      </AuthenticationContextWrapper>
     </ThemeProvider>
   );
 }
