@@ -6,12 +6,14 @@ import configureStore from './store';
 
 // components
 import App from './components/App';
+import Loader from './components/App/Loader';
 
 // styles
 import './index.css';
 
 ReactDOM.render(
   <Provider store={configureStore()}>
+    <Loader />
     <App />
   </Provider>, 
   document.getElementById('root')
