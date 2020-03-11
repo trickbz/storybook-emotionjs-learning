@@ -18,6 +18,7 @@ import { PERSON_FORM_KEY, PERSON_FORM_FIELDS, PERSON_FORM_CONFIG } from "./Perso
 
 // styles
 import * as s from "./PersonForm.styles";
+import ReduxFormField from "../../../ReduxFormField";
 
 const InputField = withFormField(Input);
 const ToggleField = withFormField(Toggle);
@@ -44,7 +45,7 @@ function PersonForm(props) {
       <Form onSubmit={submitHandler}>
         <InputField name={PERSON_FORM_FIELDS.NAME} />
         <InputField name={PERSON_FORM_FIELDS.SURNAME} />
-
+        <ReduxFormField name={PERSON_FORM_FIELDS.NAME} component={Input} />
         
         <div css={s.toggleSection}>
           Gender&nbsp;
