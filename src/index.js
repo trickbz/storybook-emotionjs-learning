@@ -66,7 +66,7 @@ ReactDOM.render(
         </App>
       </AuthenticationContextWrapper>
     </Router>
-  </Provider>,
+  </ReduxProvider>,
   document.getElementById('root')
 );
 
