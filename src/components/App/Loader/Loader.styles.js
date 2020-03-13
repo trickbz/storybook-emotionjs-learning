@@ -35,11 +35,11 @@ export const dot = css`
     margin-right: 3px;
   }
 
-  &:nth-child(2) {
+  &:nth-of-type(2) {
     animation-delay: -1.1s;
   }
 
-  &:nth-child(3) {
+  &:nth-of-type(3) {
     animation-delay: -0.9s;
   }  
 `;

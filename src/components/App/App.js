@@ -1,36 +1,19 @@
 /** @jsx jsx */
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Global, css, jsx } from "@emotion/core";
-import normalize from "normalize.css";
-import { ThemeProvider } from "emotion-theming";
 import { useState, useEffect, useCallback } from "react";
 import { isEqual } from "lodash";
+import PropTypes from "prop-types";
+import { ThemeProvider } from "emotion-theming";
+import { jsx } from "@emotion/core";
 
 // components
 import Menu from './Menu';
-import AuthenticationContextWrapper from "./../../contexts/AuthenticationContext";
-
-// pages
-import HomePage from "../pages/HomePage";
-import ThemingPage from "../pages/ThemingPage";
-import UseCallbackPage from "../pages/UseCallbackPage";
-import UseLayoutEffectPage from "../pages/UseLayoutEffectPage";
-import ReduxFormPage from "../pages/ReduxFormPage";
-import StylingPage from "../pages/StylingPage";
+import Loader from "./Loader";
 
 // styles
 import './App.css';
 
 // constants
 import MenuConfig from "../../config/menuConfig";
-import { 
-  THEMING_ROUTE, 
-  HOME_ROUTE, 
-  USE_CALLBACK_ROUTE, 
-  USE_LAYOUT_EFFECT_ROUTE, 
-  REDUX_FORM_ROUTE,
-  STYLING_PAGE_ROUTE
-} from '../../constants/routerConstants';
 import { LOCAL_STORAGE_THEME_KEY } from "../../constants/localStorageConstants";
 
 // themes
@@ -40,7 +23,11 @@ import greenTheme from "../../themes/greenTheme";
 // hooks
 import { useLocalStorage } from "../../hooks/localStorageHooks";
 
-function App() {   
+function App(props) {   
+  const {
+    children
+  } = props;
+  
   const [theme, setTheme] = useLocalStorage(LOCAL_STORAGE_THEME_KEY, greenTheme);
   
   const toggleTheme = useCallback(() => {
@@ -64,44 +51,17 @@ function App() {
 
   return (
     <ThemeProvider theme={themeConfig}>
-      <AuthenticationContextWrapper>
-        <Global
-          styles={css`
-          ${normalize}
-          body {
-            background-color: #fafafa;
-          }
-        `}
-        />
-        <Router>
-          <div>
-            <Menu items={MenuConfig} />
-
-            <Switch>
-              <Route path={HOME_ROUTE} exact>
-                <HomePage />
-              </Route>
-              <Route path={THEMING_ROUTE}>
-                <ThemingPage />
-              </Route>
-              <Route path={USE_CALLBACK_ROUTE}>
-                <UseCallbackPage />
-              </Route>
-              <Route path={USE_LAYOUT_EFFECT_ROUTE}>
-                <UseLayoutEffectPage />
-              </Route>
-              <Route path={REDUX_FORM_ROUTE}>
-                <ReduxFormPage />
-              </Route>
-              <Route path={STYLING_PAGE_ROUTE}>
-                <StylingPage />
-              </Route>
-            </Switch>
-          </div>
-        </Router>      
-      </AuthenticationContextWrapper>
+      <div>
+        <Menu items={MenuConfig} />
+        <Loader />
+        {children}
+      </div>
     </ThemeProvider>
   );
+}
+
+App.propTypes = {
+  children: PropTypes.node  
 }
 
 export default App;
