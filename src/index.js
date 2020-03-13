@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import { Provider } from 'react-redux'
+import { Provider as ReduxProvider } from 'react-redux'
 import configureStore from './store';
 import { Global, css, jsx } from "@emotion/core";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -31,7 +31,7 @@ import {
 import './index.css';
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
+  <ReduxProvider store={configureStore()}>
     <Router>
       <AuthenticationContextWrapper>
         <App>
