@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { jsx } from "@emotion/core";
 
 // context
-import { AuthenticationContext } from "../../../../contexts/AuthenticationContext";
+import { AuthenticationContext } from "../../../contexts/AuthenticationContext";
 
 // styles
 import * as s from "./AuthProtectedBox.styles";

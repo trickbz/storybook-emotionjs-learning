@@ -9,7 +9,7 @@ import normalize from "normalize.css";
 
 // components
 import App from './components/App';
-import AuthenticationContextWrapper from "./contexts/AuthenticationContext";
+import AuthenticationContextWrapper from "./components/contexts/AuthenticationContext";
 import HomePage from "./components/pages/HomePage";
 import ThemingPage from "./components/pages/ThemingPage";
 import UseCallbackPage from "./components/pages/UseCallbackPage";

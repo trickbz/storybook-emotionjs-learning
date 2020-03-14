@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 
 // components
 import Toggle from "../../../Toggle";
-import { AuthenticationContext } from "../../../../contexts/AuthenticationContext";
+import { AuthenticationContext } from "../../../contexts/AuthenticationContext";
 
 function UserSwitcher() {
   const { authenticated, setAuthenticated } = useContext(AuthenticationContext);

@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
-import { useLocalStorage } from "../hooks/localStorageHooks";
+import { useLocalStorage } from "../../hooks/localStorageHooks";
 
 // constants
-import { LOCAL_STORAGE_AUTHENTICATED_KEY } from "../constants/localStorageConstants";
+import { LOCAL_STORAGE_AUTHENTICATED_KEY } from "../../constants/localStorageConstants";
 
 export const AuthenticationContext = createContext();
 
