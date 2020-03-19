@@ -9,68 +9,35 @@ import normalize from "normalize.css";
 
 // components
 import App from './components/App';
-import AuthenticationContextWrapper from "./components/contexts/AuthenticationContext";
-import HomePage from "./components/pages/HomePage";
-import ThemingPage from "./components/pages/ThemingPage";
-import UseCallbackPage from "./components/pages/UseCallbackPage";
-import UseLayoutEffectPage from "./components/pages/UseLayoutEffectPage";
-import ReduxFormPage from "./components/pages/ReduxFormPage";
-import StylingPage from "./components/pages/StylingPage";
+import Sandbox from "./components/pages/Sandbox";
 
 // constants
 import {
-  THEMING_ROUTE,
-  HOME_ROUTE,
-  USE_CALLBACK_ROUTE,
-  USE_LAYOUT_EFFECT_ROUTE,
-  REDUX_FORM_ROUTE,
-  STYLING_PAGE_ROUTE
+  SANDBOX_ROUTE
 } from './constants/routerConstants';
-
-// providers
-import ThemeProvider from './prividers/ThemeProvider';
 
 // styles
 import './index.css';
 
 ReactDOM.render(
   <ReduxProvider store={configureStore()}>
-    <ThemeProvider>
-      <Router>
-        <AuthenticationContextWrapper>
-          <App>
-            <Global
-              styles={css`
+    <Router>
+      <App>
+        <Global
+          styles={css`
               ${normalize}
               body {
                 background-color: #fafafa;
               }
             `}
-            />
-            <Switch>
-              <Route path={HOME_ROUTE} exact>
-                <HomePage />
-              </Route>
-              <Route path={THEMING_ROUTE}>
-                <ThemingPage />
-              </Route>
-              <Route path={USE_CALLBACK_ROUTE}>
-                <UseCallbackPage />
-              </Route>
-              <Route path={USE_LAYOUT_EFFECT_ROUTE}>
-                <UseLayoutEffectPage />
-              </Route>
-              <Route path={REDUX_FORM_ROUTE}>
-                <ReduxFormPage />
-              </Route>
-              <Route path={STYLING_PAGE_ROUTE}>
-                <StylingPage />
-              </Route>
-            </Switch>
-          </App>
-        </AuthenticationContextWrapper>
-      </Router>
-    </ThemeProvider>
+        />
+        <Switch>
+          <Route path={SANDBOX_ROUTE} exact>
+            <Sandbox />
+          </Route>
+        </Switch>
+      </App>
+    </Router>
   </ReduxProvider>,
   document.getElementById('root')
 );

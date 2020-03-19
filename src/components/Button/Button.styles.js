@@ -11,10 +11,12 @@ export const disabledButton = css`
   cursor: not-allowed;
 `;
 
-export const getCommonStyles = (theme, { rounded, disabled }) => css`
-  color: ${theme.colors.controlText};
-  background-color: ${theme.colors.controlBackground};
-  border: 1px solid ${theme.colors.controlBorderColor};
-  border-radius: ${rounded ? '10px' : '0'};
+export const roundedButton = css`
+  border-radius: 10px;
+`;
+
+export const getCommonStyles = ({ rounded, disabled }) => css`
+  ${button};
+  ${rounded && roundedButton}
   ${disabled && disabledButton};
 `;

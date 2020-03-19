@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { useTheme } from "emotion-theming";
 import { isFunction } from "lodash";
 import PropTypes from "prop-types";
 
@@ -12,7 +11,6 @@ import { BUTTON_TYPES, BUTTON_TYPE_SECONDARY } from "../../constants/buttonConst
 
 function Button(props) {
   const { onClick, children, type, styles, disabled } = props;
-  const { theme } = useTheme();
 
   const handleClick = e => {
     if (isFunction(onClick) && !disabled) {
@@ -23,8 +21,7 @@ function Button(props) {
   return (
     <button
       css={css`
-        ${s.button};
-        ${s.getCommonStyles(theme, props)}
+        ${s.getCommonStyles(props)}
         ${styles};
       `}
       onClick={handleClick}
