@@ -19,7 +19,7 @@ const ComponentWrapper = (Component, fieldProps) => {
       {...componentProps}
     />
   )
-}  
+}
 
 const ReduxFormField = props => {
   const {
@@ -29,7 +29,7 @@ const ReduxFormField = props => {
   } = props;
 
   const Component = useCallback(
-    partial(ComponentWrapper, component), 
+    partial(ComponentWrapper, component),
     [ComponentWrapper, component]
   );
 
